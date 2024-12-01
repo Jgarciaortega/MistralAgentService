@@ -1,4 +1,3 @@
-
 public with sharing class MistralCallOuts {
 
     private static final String BASE_URL = 'https://api.mistral.ai/v1';

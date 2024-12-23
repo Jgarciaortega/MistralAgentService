@@ -13,12 +13,13 @@ public with sharing class MistralCallOuts {
 
  
     @AuraEnabled(Cacheable = false)
-    public static void chatWithAgent(String inputText){
+    public static String chatWithAgent(String inputText){
 
-        MistralAgentWrapper agentWrapper = createAgentRequest();
+        MistralAgentWrapper agentWrapper = createAgentRequest(inputText);
         HttpRequest req = new HttpRequest();
         Http http = new Http();
-    
+        String responseMessage = '';
+
         req.setEndpoint(BASE_URL + AGENT_URL);
         req.setMethod(POST_METHOD);
         req.setHeader(HEADER_CONTENT_TYPE[0], HEADER_CONTENT_TYPE[1]);
@@ -32,6 +33,7 @@ public with sharing class MistralCallOuts {
 
             if(res.getStatusCode() == HTTP_CODE_OK){
                 MistralAgentResponseWrapper response = (MistralAgentResponseWrapper) JSON.deserialize(res.getBody(), MistralAgentResponseWrapper.class);
+                responseMessage = response.choices[0].message.content;
                 System.debug('Response => ' + response.choices[0].message.content);
             }else{
                 System.debug(LoggingLevel.ERROR, 'Status ERROR: ' + res.getStatusCode());
@@ -42,9 +44,11 @@ public with sharing class MistralCallOuts {
             System.debug(LoggingLevel.ERROR, 'MistralCallOut.chatWithAgent error. Msg => ' + e.getMessage());
         }
 
+        return responseMessage;
+
     }
 
-    private static MistralAgentWrapper createAgentRequest(){
+    private static MistralAgentWrapper createAgentRequest(String inputText){
 
         MistralAgentWrapper agentWrapper = new MistralAgentWrapper();
         agentWrapper.max_tokens = 1000;
@@ -57,7 +61,7 @@ public with sharing class MistralCallOuts {
 
         MistralAgentWrapper.cls_messages msg = new MistralAgentWrapper.cls_messages();
         msg.role = 'user';
-        msg.content = 'Hi, What is your main job?';
+        msg.content = inputText;
         agentWrapper.messages.add(msg);
 
         MistralAgentWrapper.cls_tools tools = new MistralAgentWrapper.cls_tools();

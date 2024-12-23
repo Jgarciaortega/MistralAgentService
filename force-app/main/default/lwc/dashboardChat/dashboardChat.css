@@ -1,0 +1,52 @@
+.slds-m-top_medium {
+    margin-top: 1rem;
+}
+
+.slds-m-bottom_x-large {
+    margin-bottom: 2rem;
+}
+
+.slds-p-around_medium {
+    padding: 1rem;
+}
+
+.lgc-bg {
+    background-color: #f4f6f9;
+}
+
+/* Añade tus estilos personalizados aquí */
+.chat-container {
+    width: 99%; /* Ancho estático */
+    height: 400px; /* Alto fijo */
+    overflow-y: auto;
+    overflow-y: auto;
+    min-height: 515px;
+    border: 1px solid #d8dde6;
+    border-radius: 0.25rem;
+    padding: 1%;
+    margin: 1%;
+    background-color: #ffffff;
+}
+
+.chat-message{
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 1.1rem;
+    display: inline-block;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.chat-message-user {
+    background-color: #e3e3e3;
+    justify-content: start;
+}
+
+.chat-message-service {
+    background-color: #d1e7dd;
+    justify-content: end;
+}
+
+.msg-container {
+    display: flex;
+}

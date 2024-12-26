@@ -16,6 +16,12 @@ export default class InputTextChat extends LightningElement {
         }
     }
 
+    handleClickEndChat(event) {
+        if (event.target.label === 'End Chat') {
+            this.dispatchEvent(new CustomEvent('endchat'));
+        }
+    }
+
     clearInput(element){
         element.value = '';
     }

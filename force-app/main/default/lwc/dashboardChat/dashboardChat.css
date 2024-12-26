@@ -31,7 +31,7 @@
 .chat-message{
     margin-bottom: 0.5rem;
     padding: 0.5rem;
-    border-radius: 1.1rem;
+    border-radius: 0.9rem;
     display: inline-block;
     max-width: 80%;
     word-wrap: break-word;
@@ -39,14 +39,21 @@
 
 .chat-message-user {
     background-color: #e3e3e3;
-    justify-content: start;
+    align-self: flex-end;
 }
 
 .chat-message-service {
     background-color: #d1e7dd;
-    justify-content: end;
+    align-self: flex-start;
 }
 
 .msg-container {
     display: flex;
+    flex-direction: column;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: #888;
+    text-align: right;
 }

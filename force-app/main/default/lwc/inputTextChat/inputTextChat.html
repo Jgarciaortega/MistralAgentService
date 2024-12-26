@@ -1,6 +1,13 @@
 <template>
     <div class="slds-m-top_medium slds-m-bottom_x-large">
         <div class="slds-p-around_medium lgc-bg">
+            <div class="input-container-btns">
+                <div class="input-left-btns">  
+                </div>
+                <div class="input-right-btns">
+                    <lightning-button  variant="destructive" label="End Chat" title="End Chat" onclick={handleClickEndChat} class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </div>
             <lightning-input type="text" placeholder="Enter some text" onkeydown={handleInputChange}></lightning-input>
         </div>
     </div>

@@ -2,12 +2,14 @@
     <div class="slds-m-top_medium slds-m-bottom_x-large">
         <div class="slds-p-around_medium lgc-bg chat-container">
             <template for:each={computedMessages} for:item="message">
-                <div key={message.id}  class="msg-conainter">
+                <div key={message.id}  class="msg-container">
                     <div class={message.cssClass}>
                             <p>{message.text}</p>
+                            <p class="timestamp">{message.timestamp}</p>
                     </div> 
                 </div>
             </template>
         </div>
     </div>
 </template>
+

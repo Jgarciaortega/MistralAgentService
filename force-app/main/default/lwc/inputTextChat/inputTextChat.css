@@ -1,0 +1,15 @@
+.input-container-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-left-btns {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.input-right-btns {
+    display: flex;
+    justify-content: flex-end;
+}
